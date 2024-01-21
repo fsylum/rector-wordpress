@@ -17,6 +17,10 @@ jobs:
       matrix:
         actions:
           -
+            name: 'Composer Normalize'
+            run: composer normalize --dry-run
+
+          -
             name: 'Composer Validate'
             run: composer validate
 
