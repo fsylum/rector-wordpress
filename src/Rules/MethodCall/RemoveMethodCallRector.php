@@ -82,10 +82,10 @@ final class RemoveMethodCallRector extends AbstractRector implements Configurabl
         );
     }
 
-    private function isObjectTypeMatch(MethodCall $call, string $class): bool
+    private function isObjectTypeMatch(MethodCall $methodCall, string $class): bool
     {
         $objectType = new ObjectType($class);
 
-        return $this->isObjectType($call->var, $objectType);
+        return $this->isObjectType($methodCall->var, $objectType);
     }
 }
