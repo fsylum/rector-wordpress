@@ -1,0 +1,17 @@
+parameters:
+    level: max
+
+    paths:
+        - config
+        - src
+        - tests
+
+    reportUnmatchedIgnoredErrors: false
+    treatPhpDocTypesAsCertain: false
+
+    ignoreErrors:
+        - '#^Parameter \#1 \$node (.*?) of method Fsylum\\RectorWordPress\\(.*?)\:\:refactor\(\) should be contravariant with parameter \$node \(PhpParser\\Node\) of method Rector\\Contract\\Rector\\RectorInterface\:\:refactor\(\)$#'
+        - '#^Parameter \#1 \$configuration (.*?) of method Fsylum\\RectorWordPress\\(.*?)\:\:configure\(\) should be contravariant with parameter \$configuration \(array\) of method Rector\\Contract\\Rector\\ConfigurableRectorInterface\:\:configure\(\)$#'
+        - '#^Return type \(int\|null\) of method Fsylum\\RectorWordPress\\Rules\\MethodCall\\RemoveMethodCallRector\:\:refactor\(\) should be covariant with return type \(1\|2\|3\|4\|array\<PhpParser\\Node\>\|PhpParser\\Node\|null\) of method Rector\\Contract\\Rector\\RectorInterface\:\:refactor\(\)$#'
+        - '#^Parameter \#1 \$items of class PhpParser\\Node\\Expr\\Array_ constructor expects array\<PhpParser\\Node\\ArrayItem\>, array\<int, PhpParser\\Node\\Expr\\ArrayItem\> given\.$#'
+        - '#^Parameter \#1 \$value of static method PhpParser\\BuilderHelpers\:\:normalizeValue\(\) expects array\|bool\|float\|int\|PhpParser\\Node\\Expr\|string\|null, mixed given\.$#'
