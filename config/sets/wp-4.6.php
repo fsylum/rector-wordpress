@@ -6,6 +6,8 @@ use Rector\Removing\ValueObject\RemoveFuncCallArg;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(RemoveFuncCallArgRector::class, [
         new RemoveFuncCallArg('install_search_form', 0),
         new RemoveFuncCallArg('wp_embed_handler_googlevideo', 0),

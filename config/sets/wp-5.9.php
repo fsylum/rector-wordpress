@@ -8,6 +8,8 @@ use Rector\Transform\Rector\StaticCall\StaticCallToFuncCallRector;
 use Rector\Transform\ValueObject\StaticCallToFuncCall;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(RemoveFuncCallArgRector::class, [
         new RemoveFuncCallArg('_load_remote_block_patterns', 0),
     ]);

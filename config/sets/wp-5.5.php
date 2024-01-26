@@ -7,6 +7,8 @@ use Rector\Removing\Rector\FuncCall\RemoveFuncCallRector;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(FunctionArgumentDefaultValueReplacerRector::class, [
         new ReplaceFuncCallArgumentDefaultValue('add_action', 0, 'wp_blacklist_check', 'wp_check_comment_disallowed_list'),
         new ReplaceFuncCallArgumentDefaultValue('add_filter', 0, 'whitelist_options', 'allowed_options'),

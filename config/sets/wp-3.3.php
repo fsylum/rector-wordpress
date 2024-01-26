@@ -12,6 +12,8 @@ use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(ParameterAdderRector::class, [
         new FunctionParameterAdder('start_post_rel_link', 3, true),
         new FunctionParameterAdder('type_url_form_audio', 0, 'audio'),

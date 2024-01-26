@@ -5,6 +5,8 @@ use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(ConstToFuncCallRector::class, [
         'STYLESHEETPATH' => 'get_stylesheet_directory',
         'TEMPLATEPATH'   => 'get_template_directory',

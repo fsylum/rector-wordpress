@@ -7,6 +7,8 @@ use Rector\Transform\Rector\MethodCall\MethodCallToFuncCallRector;
 use Rector\Transform\ValueObject\MethodCallToFuncCall;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(MethodCallToFuncCallRector::class, [
         new MethodCallToFuncCall('wpdb', '_weak_escape', 'esc_sql'),
         new MethodCallToFuncCall('wpdb', 'escape', 'esc_sql'),

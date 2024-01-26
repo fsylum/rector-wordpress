@@ -2,8 +2,10 @@
 
 namespace Fsylum\RectorWordPress\Rules\MethodCall;
 
+use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node;
+use PhpParser\Node\VariadicPlaceholder;
 use PHPStan\Type\ObjectType;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Rector\AbstractRector;
@@ -26,7 +28,7 @@ final class ReturnFirstArgumentRector extends AbstractRector implements Configur
     /**
      * @param MethodCall $node
      */
-    public function refactor(Node $node): ?Node
+    public function refactor(Node $node): null|Arg|VariadicPlaceholder
     {
         if (count($node->args) === 0) {
             return null;

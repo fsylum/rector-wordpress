@@ -8,6 +8,8 @@ use Rector\Removing\Rector\FuncCall\RemoveFuncCallRector;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(ParameterAdderRector::class, [
         new FunctionParameterAdder('wp_rel_nofollow_callback', 1, 'nofollow'),
     ]);

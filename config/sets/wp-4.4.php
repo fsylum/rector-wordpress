@@ -7,6 +7,8 @@ use Rector\Removing\ValueObject\RemoveFuncCallArg;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(RemoveFuncCallArgRector::class, [
         new RemoveFuncCallArg('get_site_option', 2),
         new RemoveFuncCallArg('get_wp_title_rss', 0),
