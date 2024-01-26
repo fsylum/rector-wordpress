@@ -16,6 +16,8 @@ use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(FunctionArgumentDefaultValueReplacerRector::class, [
         new ReplaceFuncCallArgumentDefaultValue('add_settings_field', 3, 'privacy', 'reading'),
         new ReplaceFuncCallArgumentDefaultValue('add_settings_section', 3, 'privacy', 'reading'),

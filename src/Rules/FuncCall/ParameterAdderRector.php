@@ -30,6 +30,8 @@ final class ParameterAdderRector extends AbstractRector implements ConfigurableR
      */
     public function refactor(Node $node): ?Node
     {
+        $hasChanged = false;
+
         foreach ($this->configuration as $config) {
             if (!$this->isName($node->name, $config->getFunction())) {
                 continue;
@@ -43,6 +45,11 @@ final class ParameterAdderRector extends AbstractRector implements ConfigurableR
             }
 
             $node->args[$position] = $arg;
+            $hasChanged            = true;
+        }
+
+        if (!$hasChanged) {
+            return null;
         }
 
         return $node;

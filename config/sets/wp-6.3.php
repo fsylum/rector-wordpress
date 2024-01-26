@@ -9,6 +9,8 @@ use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(ParameterAdderRector::class, [
         new MethodParameterAdder('WP_Metadata_Lazyloader', 'lazyload_comment_meta', 1, 0),
         new MethodParameterAdder('WP_Metadata_Lazyloader', 'lazyload_comment_meta', 2, ''),

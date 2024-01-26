@@ -9,6 +9,8 @@ use Rector\Removing\ValueObject\RemoveFuncCallArg;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(ParameterAdderRector::class, [
         new FunctionParameterAdder('remove_custom_background', 0, 'custom-background'),
         new FunctionParameterAdder('remove_custom_image_header', 0, 'custom-header'),

@@ -10,6 +10,8 @@ use Rector\Transform\Rector\MethodCall\MethodCallToFuncCallRector;
 use Rector\Transform\ValueObject\MethodCallToFuncCall;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(MethodCallToFuncCallRector::class, [
         new MethodCallToFuncCall('WP_Query', 'is_comments_popup', '__return_false'),
     ]);

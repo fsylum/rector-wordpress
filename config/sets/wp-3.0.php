@@ -12,6 +12,8 @@ use Rector\Removing\ValueObject\RemoveFuncCallArg;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(FunctionArgumentDefaultValueReplacerRector::class, [
         new ReplaceFuncCallArgumentDefaultValue('add_settings_field', 3, 'misc', 'general'),
         new ReplaceFuncCallArgumentDefaultValue('add_settings_section', 3, 'misc', 'general'),

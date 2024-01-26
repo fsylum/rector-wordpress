@@ -30,6 +30,8 @@ final class ParameterPrependerRector extends AbstractRector implements Configura
      */
     public function refactor(Node $node): ?Node
     {
+        $hasChanged = false;
+
         foreach ($this->configuration as $config) {
             if (!$this->isName($node->name, $config->getFunction())) {
                 continue;
@@ -42,6 +44,11 @@ final class ParameterPrependerRector extends AbstractRector implements Configura
             array_unshift($args, $arg);
 
             $node->args = $args;
+            $hasChanged = true;
+        }
+
+        if (!$hasChanged) {
+            return null;
         }
 
         return $node;

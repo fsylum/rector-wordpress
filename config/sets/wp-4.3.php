@@ -10,6 +10,8 @@ use Rector\Removing\ValueObject\RemoveFuncCallArg;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(FunctionArgumentDefaultValueReplacerRector::class, [
         new ReplaceFuncCallArgumentDefaultValue('add_filter', 0, 'htmledit_pre', 'format_for_editor'),
     ]);

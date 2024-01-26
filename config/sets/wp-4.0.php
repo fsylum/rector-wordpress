@@ -11,6 +11,8 @@ use Rector\Renaming\Rector\ConstFetch\RenameConstantRector;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 
 return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(__DIR__ . '/../config.php');
+
     $rectorConfig->ruleWithConfiguration(FunctionArgumentDefaultValueReplacerRector::class, [
         new ReplaceFuncCallArgumentDefaultValue('define', 0, 'FORCE_SSL_LOGIN', 'FORCE_SSL_ADMIN'),
     ]);
