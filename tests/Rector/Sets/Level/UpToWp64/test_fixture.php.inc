@@ -380,7 +380,7 @@ wp_create_user('foo', 'bar', 'baz');
 
 // 2.1
 get_the_author();
-$foo = __return_zero();
+$foo = 0;
 wp_get_post_categories(2);
 wp_set_post_categories(2, ['foo', 'bar']);
 get_bookmark(1);

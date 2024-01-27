@@ -16,7 +16,7 @@ get_settings('foo');
 <?php
 
 get_the_author();
-$foo = __return_zero();
+$foo = 0;
 
 wp_get_post_categories(2);
 wp_set_post_categories(2, ['foo', 'bar']);
