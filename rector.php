@@ -3,21 +3,17 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Set\ValueObject\LevelSetList;
-use Rector\Set\ValueObject\SetList;
+use Rector\ValueObject\PhpVersion;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->importNames();
-
-    $rectorConfig->paths([
+return RectorConfig::configure()
+    ->withImportNames()
+    ->withPaths([
         __DIR__ . '/src',
         __DIR__ . '/tests',
-    ]);
-
-    $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_82,
-        SetList::DEAD_CODE,
-        SetList::CODE_QUALITY,
-        SetList::NAMING,
-    ]);
-};
+    ])
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        naming: true
+    )
+    ->withPhpVersion(PhpVersion::PHP_82);
