@@ -1,6 +1,6 @@
 <?php
 
-namespace Fsylum\RectorWordPress\Tests\Rector\Sets\Level\UpToWp64;
+namespace Fsylum\RectorWordPress\Tests\Rector\Sets\Level\UpToWp65;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -9,7 +9,7 @@ use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 /**
  * @internal
  */
-final class UpToWp64Test extends AbstractRectorTestCase
+final class UpToWp65Test extends AbstractRectorTestCase
 {
     #[DataProvider('provideData')]
     public function test(string $filePath): void
@@ -24,6 +24,6 @@ final class UpToWp64Test extends AbstractRectorTestCase
 
     public function provideConfigFilePath(): string
     {
-        return __DIR__ . '/../../../../../config/sets/level/up-to-wp-6.4.php';
+        return __DIR__ . '/../../../../../config/sets/level/up-to-wp-6.5.php';
     }
 }
