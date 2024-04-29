@@ -101,4 +101,6 @@ final class WordPressSetList implements SetListInterface
     public const WP_6_3 = __DIR__ . '/../../config/sets/wp-6.3.php';
 
     public const WP_6_4 = __DIR__ . '/../../config/sets/wp-6.4.php';
+
+    public const WP_6_5 = __DIR__ . '/../../config/sets/wp-6.5.php';
 }
