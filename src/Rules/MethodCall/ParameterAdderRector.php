@@ -21,8 +21,7 @@ final class ParameterAdderRector extends AbstractRector implements ConfigurableR
      * @var array<MethodParameterAdder>
      */
     private array $configuration = [];
-
-    private bool $hasChanged = false;
+    private bool $hasChanged     = false;
 
     public function getNodeTypes(): array
     {
