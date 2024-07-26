@@ -368,6 +368,10 @@ $class2 = new WP_Site_Icon;
 $class1->create_attachment_object('foo', 1);
 $class2->create_attachment_object('foo', 1);
 
+// 6.6
+$foo = wp_interactivity_process_directives_of_interactive_blocks($bar);
+$foo = wp_render_elements_support($bar);
+
 ?>
 -----
 <?php
@@ -689,5 +693,9 @@ $class2 = new WP_Site_Icon;
 
 \wp_copy_parent_attachment_properties('foo', 1, 'custom-header');
 \wp_copy_parent_attachment_properties('foo', 1, 'site-icon');
+
+// 6.6
+$foo = $bar;
+$foo = $bar;
 
 ?>

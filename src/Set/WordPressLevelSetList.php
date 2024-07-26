@@ -55,4 +55,5 @@ final class WordPressLevelSetList implements SetListInterface
     public const UP_TO_WP_6_3  = __DIR__ . '/../../config/sets/level/up-to-wp-6.3.php';
     public const UP_TO_WP_6_4  = __DIR__ . '/../../config/sets/level/up-to-wp-6.4.php';
     public const UP_TO_WP_6_5  = __DIR__ . '/../../config/sets/level/up-to-wp-6.5.php';
+    public const UP_TO_WP_6_6  = __DIR__ . '/../../config/sets/level/up-to-wp-6.6.php';
 }
