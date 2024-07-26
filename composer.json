@@ -45,6 +45,11 @@
         "post-update-cmd": [
             "@composer normalize"
         ],
+        "code-quality": [
+            "@rector",
+            "@phpstan",
+            "@pint"
+        ],
         "phpstan": "vendor/bin/phpstan analyse --ansi",
         "phpunit": "vendor/bin/phpunit tests",
         "pint": "vendor/bin/pint",

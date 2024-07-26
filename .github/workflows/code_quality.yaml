@@ -15,6 +15,9 @@ jobs:
 
     strategy:
       matrix:
+        php:
+          - 8.2
+          - 8.3
         actions:
           -
             name: 'Composer Normalize'
@@ -40,14 +43,14 @@ jobs:
             name: 'PHPUnit'
             run: composer phpunit
 
-    name: ${{ matrix.actions.name }}
+    name: ${{ matrix.actions.name }} (PHP ${{ matrix.php }})
 
     steps:
       -   uses: actions/checkout@v4
 
       -   uses: shivammathur/setup-php@v2
           with:
-            php-version: 8.3
+            php-version: ${{ matrix.php }}
             coverage: none
 
       -   uses: ramsey/composer-install@v2
