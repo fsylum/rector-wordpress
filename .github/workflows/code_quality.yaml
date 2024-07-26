@@ -43,7 +43,7 @@ jobs:
             name: 'PHPUnit'
             run: composer phpunit
 
-    name: ${{ matrix.actions.name }}
+    name: ${{ matrix.actions.name }} (PHP ${{ matrix.php }})
 
     steps:
       -   uses: actions/checkout@v4
