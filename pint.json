@@ -59,7 +59,6 @@
             "spacing": "one"
         },
         "declare_parentheses": true,
-        "declare_strict_types": true,
         "dir_constant": true,
         "echo_tag_syntax": true,
         "empty_loop_body": {
@@ -160,6 +159,7 @@
         "object_operator_without_whitespace": true,
         "octal_notation": true,
         "operator_linebreak": {
+            "only_booleans": true,
             "position": "end"
         },
         "ordered_attributes": true,
