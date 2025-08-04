@@ -388,6 +388,10 @@ wp_remove_targeted_link_rel_filters();
 
 (new WP_Interactivity_API)->print_router_loading_and_screen_reader_markup();
 
+// 6.8
+add_action( 'setted_transient', 'foo', 'bar', 10 );
+add_action( 'setted_site_transient', 'foo', 'bar', 10 );
+
 ?>
 -----
 <?php
@@ -723,5 +727,9 @@ if (current_user_can_for_site(1, 'edit_posts')) {
 }
 
 (new WP_Interactivity_API)->print_router_markup();
+
+// 6.8
+add_action( 'set_transient', 'foo', 'bar', 10 );
+add_action( 'set_site_transient', 'foo', 'bar', 10 );
 
 ?>
