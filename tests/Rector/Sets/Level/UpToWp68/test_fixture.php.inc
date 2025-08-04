@@ -372,6 +372,26 @@ $class2->create_attachment_object('foo', 1);
 $foo = wp_interactivity_process_directives_of_interactive_blocks($bar);
 $foo = wp_render_elements_support($bar);
 
+// 6.7
+wp_get_global_styles_custom_css();
+wp_enqueue_global_styles_custom_css();
+
+if (current_user_can_for_blog(1, 'edit_posts')) {
+    echo 'foo';
+}
+
+wp_init_targeted_link_rel_filters();
+wp_remove_targeted_link_rel_filters();
+
+(new WP_Interactivity_API)->print_client_interactivity_data();
+(new WP_Interactivity_API)->register_script_modules();
+
+(new WP_Interactivity_API)->print_router_loading_and_screen_reader_markup();
+
+// 6.8
+add_action( 'setted_transient', 'foo', 'bar', 10 );
+add_action( 'setted_site_transient', 'foo', 'bar', 10 );
+
 ?>
 -----
 <?php
@@ -697,5 +717,19 @@ $class2 = new WP_Site_Icon;
 // 6.6
 $foo = $bar;
 $foo = $bar;
+
+// 6.7
+wp_get_global_stylesheet();
+wp_enqueue_global_styles();
+
+if (current_user_can_for_site(1, 'edit_posts')) {
+    echo 'foo';
+}
+
+(new WP_Interactivity_API)->print_router_markup();
+
+// 6.8
+add_action( 'set_transient', 'foo', 'bar', 10 );
+add_action( 'set_site_transient', 'foo', 'bar', 10 );
 
 ?>
