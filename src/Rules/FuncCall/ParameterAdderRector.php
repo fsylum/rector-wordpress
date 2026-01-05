@@ -38,6 +38,8 @@ final class ParameterAdderRector extends AbstractRector implements ConfigurableR
             }
 
             $position = $config->getPosition();
+
+            /** @phpstan-ignore argument.type */
             $arg      = new Arg(BuilderHelpers::normalizeValue($config->getValue()));
 
             if (isset($node->args[$position])) {
@@ -56,12 +58,14 @@ final class ParameterAdderRector extends AbstractRector implements ConfigurableR
     }
 
     /**
-     * @param array<FunctionParameterAdder> $configuration
+     * @param array<mixed> $configuration
      */
     public function configure(array $configuration): void
     {
+        // @phpstan-ignore argument.type
         Assert::allIsAOf($configuration, FunctionParameterAdder::class);
 
+        // @var array<FunctionParameterAdder> $configuration
         $this->configuration = $configuration;
     }
 

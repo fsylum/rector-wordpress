@@ -5,7 +5,6 @@ namespace Fsylum\RectorWordPress\Rules\MethodCall;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node;
-use PhpParser\Node\VariadicPlaceholder;
 use PHPStan\Type\ObjectType;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Rector\AbstractRector;
@@ -28,7 +27,7 @@ final class ReturnFirstArgumentRector extends AbstractRector implements Configur
     /**
      * @param MethodCall $node
      */
-    public function refactor(Node $node): null|Arg|VariadicPlaceholder
+    public function refactor(Node $node): ?Node
     {
         if (count($node->args) === 0) {
             return null;
@@ -43,20 +42,27 @@ final class ReturnFirstArgumentRector extends AbstractRector implements Configur
                 continue;
             }
 
-            return $node->args[0];
+            $firstArg = $node->args[0];
+
+            if (!$firstArg instanceof Arg) {
+                return null;
+            }
+
+            return $firstArg->value;
         }
 
         return null;
     }
 
     /**
-     * @param array<string, string> $configuration
+     * @param array<mixed> $configuration
      */
     public function configure(array $configuration): void
     {
         Assert::allString(array_values($configuration));
         Assert::allString($configuration);
 
+        /** @var array<string, string> $configuration */
         $this->configuration = $configuration;
     }
 

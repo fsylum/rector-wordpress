@@ -2,9 +2,7 @@
 
 namespace Fsylum\RectorWordPress\Set;
 
-use Rector\Set\Contract\SetListInterface;
-
-final class WordPressLevelSetList implements SetListInterface
+final class WordPressLevelSetList
 {
     public const UP_TO_WP_0_71 = __DIR__ . '/../../config/sets/level/up-to-wp-0.71.php';
     public const UP_TO_WP_1_0  = __DIR__ . '/../../config/sets/level/up-to-wp-1.0.php';

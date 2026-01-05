@@ -19,29 +19,6 @@ final class ConstToFuncCallRector extends AbstractRector implements Configurable
      */
     private array $configuration = [];
 
-    public function getRuleDefinition(): RuleDefinition
-    {
-        return new RuleDefinition('Changes constants use to function calls', [new ConfiguredCodeSample(<<<'CODE_SAMPLE'
-            class SomeClass
-            {
-                public function run()
-                {
-                    $value = PHP_SAPI;
-                }
-            }
-            CODE_SAMPLE
-            , <<<'CODE_SAMPLE'
-                class SomeClass
-                {
-                    public function run()
-                    {
-                        $value = php_sapi_name();
-                    }
-                }
-                CODE_SAMPLE
-            , ['PHP_SAPI' => 'php_sapi_name'])]);
-    }
-
     public function getNodeTypes(): array
     {
         return [ConstFetch::class];
@@ -63,13 +40,37 @@ final class ConstToFuncCallRector extends AbstractRector implements Configurable
     }
 
     /**
-     * @param array<string, string> $configuration
+     * @param array<mixed> $configuration
      */
     public function configure(array $configuration): void
     {
         Assert::allString($configuration);
         Assert::allString(\array_keys($configuration));
 
+        /** @var array<string, string> $configuration */
         $this->configuration = $configuration;
+    }
+
+    public function getRuleDefinition(): RuleDefinition
+    {
+        return new RuleDefinition('Changes constants use to function calls', [new ConfiguredCodeSample(<<<'CODE_SAMPLE'
+            class SomeClass
+            {
+                public function run()
+                {
+                    $value = PHP_SAPI;
+                }
+            }
+            CODE_SAMPLE
+            , <<<'CODE_SAMPLE'
+                class SomeClass
+                {
+                    public function run()
+                    {
+                        $value = php_sapi_name();
+                    }
+                }
+                CODE_SAMPLE
+            , ['PHP_SAPI' => 'php_sapi_name'])]);
     }
 }

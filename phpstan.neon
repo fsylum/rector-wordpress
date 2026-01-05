@@ -15,3 +15,4 @@ parameters:
         - '#^Return type \(int\|null\) of method Fsylum\\RectorWordPress\\Rules\\MethodCall\\RemoveMethodCallRector\:\:refactor\(\) should be covariant with return type \(1\|2\|3\|4\|array\<PhpParser\\Node\>\|PhpParser\\Node\|null\) of method Rector\\Contract\\Rector\\RectorInterface\:\:refactor\(\)$#'
         - '#^Parameter \#1 \$items of class PhpParser\\Node\\Expr\\Array_ constructor expects array\<PhpParser\\Node\\ArrayItem\>, array\<int, PhpParser\\Node\\Expr\\ArrayItem\> given\.$#'
         - '#^Parameter \#1 \$value of static method PhpParser\\BuilderHelpers\:\:normalizeValue\(\) expects array\|bool\|float\|int\|PhpParser\\Node\\Expr\|string\|null, mixed given\.$#'
+        - '#^Method Fsylum\\RectorWordPress\\Tests\\(.*?)Test\:\:provideCases\(\) return type has no value type specified in iterable type iterable\.$#'

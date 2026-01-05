@@ -5,7 +5,7 @@ namespace Fsylum\RectorWordPress\Rules\MethodCall;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
-use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor;
 use PHPStan\Type\ObjectType;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Rector\AbstractRector;
@@ -45,20 +45,21 @@ final class RemoveMethodCallRector extends AbstractRector implements Configurabl
                 continue;
             }
 
-            return NodeTraverser::REMOVE_NODE;
+            return NodeVisitor::REMOVE_NODE;
         }
 
         return null;
     }
 
     /**
-     * @param array<string, string> $configuration
+     * @param array<mixed> $configuration
      */
     public function configure(array $configuration): void
     {
         Assert::allString(array_values($configuration));
         Assert::allString($configuration);
 
+        /** @var array<string, string> $configuration */
         $this->configuration = $configuration;
     }
 

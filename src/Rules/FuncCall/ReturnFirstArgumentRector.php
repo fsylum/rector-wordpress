@@ -2,6 +2,7 @@
 
 namespace Fsylum\RectorWordPress\Rules\FuncCall;
 
+use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
@@ -36,14 +37,20 @@ final class ReturnFirstArgumentRector extends AbstractRector implements Configur
                 continue;
             }
 
-            return $node->args[0];
+            $firstArg = $node->args[0];
+
+            if (!$firstArg instanceof Arg) {
+                return null;
+            }
+
+            return $firstArg->value;
         }
 
         return null;
     }
 
     /**
-     * @param array<string> $configuration
+     * @param array<mixed> $configuration
      */
     public function configure(array $configuration): void
     {

@@ -2,7 +2,6 @@
 
 namespace Fsylum\RectorWordPress\Tests\Rector\Sets\Level\UpToWp68;
 
-use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
@@ -11,13 +10,13 @@ use Rector\Testing\PHPUnit\AbstractRectorTestCase;
  */
 final class UpToWp68Test extends AbstractRectorTestCase
 {
-    #[DataProvider('provideData')]
+    #[DataProvider('provideCases')]
     public function test(string $filePath): void
     {
         $this->doTestFile($filePath);
     }
 
-    public static function provideData(): Iterator
+    public static function provideCases(): iterable
     {
         return self::yieldFilesFromDirectory(__DIR__);
     }

@@ -2,9 +2,7 @@
 
 namespace Fsylum\RectorWordPress\Set;
 
-use Rector\Set\Contract\SetListInterface;
-
-final class WordPressSetList implements SetListInterface
+final class WordPressSetList
 {
     public const WP_0_71 = __DIR__ . '/../../config/sets/wp-0.71.php';
     public const WP_1_0  = __DIR__ . '/../../config/sets/wp-1.0.php';

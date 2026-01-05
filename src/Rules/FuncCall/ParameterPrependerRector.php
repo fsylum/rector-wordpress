@@ -37,6 +37,7 @@ final class ParameterPrependerRector extends AbstractRector implements Configura
                 continue;
             }
 
+            /** @phpstan-ignore argument.type */
             $arg = new Arg(BuilderHelpers::normalizeValue($config->getValue()));
 
             $args = $node->args;
@@ -55,12 +56,14 @@ final class ParameterPrependerRector extends AbstractRector implements Configura
     }
 
     /**
-     * @param array<FunctionParameterPrepender> $configuration
+     * @param array<mixed> $configuration
      */
     public function configure(array $configuration): void
     {
+        // @phpstan-ignore argument.type
         Assert::allIsAOf($configuration, FunctionParameterPrepender::class);
 
+        // @var array<FunctionParameterPrepender> $configuration
         $this->configuration = $configuration;
     }
 
