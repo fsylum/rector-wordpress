@@ -5,8 +5,10 @@ declare(strict_types=1);
 use Fsylum\RectorWordPress\Rules\FuncCall\ParameterAdderRector;
 use Fsylum\RectorWordPress\Rules\MethodCall\ParameterAdderRector as MethodParameterAdderRector;
 use Fsylum\RectorWordPress\Rules\FuncCall\ParameterPrependerRector;
+use Fsylum\RectorWordPress\Rules\FuncCall\RenameFunctionWithArgumentsRector;
 use Fsylum\RectorWordPress\ValueObject\FunctionParameterAdder;
 use Fsylum\RectorWordPress\ValueObject\FunctionParameterPrepender;
+use Fsylum\RectorWordPress\ValueObject\FunctionRenameWithArguments;
 use Fsylum\RectorWordPress\ValueObject\MethodParameterAdder;
 use Rector\Config\RectorConfig;
 use Rector\Removing\Rector\FuncCall\RemoveFuncCallArgRector;
@@ -40,6 +42,10 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->ruleWithConfiguration(ParameterPrependerRector::class, [
         new FunctionParameterPrepender('_imaginary_function_that_should_not_exists', 'foo'),
+    ]);
+
+    $rectorConfig->ruleWithConfiguration(RenameFunctionWithArgumentsRector::class, [
+        new FunctionRenameWithArguments('_imaginary_function_that_should_not_exists', '_new_imaginary_function_that_should_not_exists', []),
     ]);
 
     $rectorConfig->ruleWithConfiguration(RenameMethodRector::class, [
