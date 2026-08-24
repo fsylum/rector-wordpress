@@ -395,8 +395,6 @@ add_action( 'setted_site_transient', 'foo', 'bar', 10 );
 // 6.9
 seems_utf8('foo');
 wp_print_auto_sizes_contain_css_fix();
-utf8_encode('foo');
-utf8_decode('foo');
 
 // 7.0
 addslashes_gpc('foo');
@@ -746,8 +744,6 @@ add_action( 'set_site_transient', 'foo', 'bar', 10 );
 // 6.9
 wp_is_valid_utf8('foo');
 wp_enqueue_img_auto_sizes_contain_css_fix();
-mb_convert_encoding('foo', 'UTF-8', 'ISO-8859-1');
-mb_convert_encoding('foo', 'ISO-8859-1', 'UTF-8');
 
 // 7.0
 wp_slash('foo');

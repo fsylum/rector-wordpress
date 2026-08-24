@@ -1,13 +1,11 @@
 <?php
 
-utf8_encode('foo');
-utf8_decode('foo');
+block_core_navigation_block_contains_core_navigation(['foo']);
 
 ?>
 -----
 <?php
 
-mb_convert_encoding('foo', 'UTF-8', 'ISO-8859-1');
-mb_convert_encoding('foo', 'ISO-8859-1', 'UTF-8');
+block_core_navigation_block_tree_has_block_type(['foo'], 'core/navigation');
 
 ?>

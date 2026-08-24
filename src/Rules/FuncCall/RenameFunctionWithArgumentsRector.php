@@ -67,9 +67,13 @@ final class RenameFunctionWithArgumentsRector extends AbstractRector implements 
             'Rename a function call and append additional arguments to it',
             [
                 new ConfiguredCodeSample(
-                    'utf8_encode($value);',
-                    "mb_convert_encoding(\$value, 'UTF-8', 'ISO-8859-1');",
-                    [new FunctionRenameWithArguments('utf8_encode', 'mb_convert_encoding', ['UTF-8', 'ISO-8859-1'])]
+                    'block_core_navigation_block_contains_core_navigation($block);',
+                    "block_core_navigation_block_tree_has_block_type(\$block, 'core/navigation');",
+                    [new FunctionRenameWithArguments(
+                        'block_core_navigation_block_contains_core_navigation',
+                        'block_core_navigation_block_tree_has_block_type',
+                        ['core/navigation']
+                    )]
                 ),
             ]
         );
