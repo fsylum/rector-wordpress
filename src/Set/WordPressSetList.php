@@ -56,4 +56,6 @@ final class WordPressSetList
     public const WP_6_6  = __DIR__ . '/../../config/sets/wp-6.6.php';
     public const WP_6_7  = __DIR__ . '/../../config/sets/wp-6.7.php';
     public const WP_6_8  = __DIR__ . '/../../config/sets/wp-6.8.php';
+    public const WP_6_9  = __DIR__ . '/../../config/sets/wp-6.9.php';
+    public const WP_7_0  = __DIR__ . '/../../config/sets/wp-7.0.php';
 }

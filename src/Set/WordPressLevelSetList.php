@@ -56,4 +56,6 @@ final class WordPressLevelSetList
     public const UP_TO_WP_6_6  = __DIR__ . '/../../config/sets/level/up-to-wp-6.6.php';
     public const UP_TO_WP_6_7  = __DIR__ . '/../../config/sets/level/up-to-wp-6.7.php';
     public const UP_TO_WP_6_8  = __DIR__ . '/../../config/sets/level/up-to-wp-6.8.php';
+    public const UP_TO_WP_6_9  = __DIR__ . '/../../config/sets/level/up-to-wp-6.9.php';
+    public const UP_TO_WP_7_0  = __DIR__ . '/../../config/sets/level/up-to-wp-7.0.php';
 }
